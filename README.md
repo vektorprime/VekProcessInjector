@@ -16,3 +16,14 @@ It just creates a new thread in that process to load your DLL.
 ![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/40314064-2fae-45d5-960f-0babb5f389b4)
 
 
+
+
+Examples:
+
+Here's an example where I inject a DLL called bad.dll into Notepad running at PID 3884. The DLL injection generates a messagebox.
+
+![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/8b7ee0b6-de74-4f3b-b77b-f2c9103161fe)
+
+Here's the code for the DLL injected:
+
+![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/d6408806-2edb-48ad-9837-fa6e12d7f4d3)
