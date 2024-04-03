@@ -18,9 +18,9 @@ It just creates a new thread in that process to load your DLL.
 
 
 
-Examples:
+**Examples**
 
-Here's an example where I inject a DLL called bad.dll into Notepad running at PID 3884. The DLL injection generates a messagebox.
+Here's an example where I injected a DLL called bad.dll into Notepad running at PID 13884. The DLL injection generates a messagebox.
 
 ![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/8b7ee0b6-de74-4f3b-b77b-f2c9103161fe)
 
