@@ -24,6 +24,10 @@ Here's an example where I injected a DLL called bad.dll into Notepad running at 
 
 ![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/035916c2-fab4-4ed6-bb27-fd54eb9b72e9)
 
+Here is Process Explorer showing the DLL loaded by Notepad.
+
+![image](https://github.com/vektorprime/VekProcessInjector/assets/9269666/96e53e5d-832c-42f5-b351-6c875b16512d)
+
 
 Here's the code for the DLL injected:
 
