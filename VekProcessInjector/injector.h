@@ -3,6 +3,7 @@
 #include <string>
 #include <Windows.h>
 #include <iostream>
+#include "snapshot.h"
 
 
 //RAII encapsulated WINAPI for injection before and after process creation
@@ -43,6 +44,13 @@ public:
 	}
 	Injector(DWORD processID, std::wstring dllName) :
 		m_processID(processID),
+		m_dllName(dllName)
+	{
+		ZeroMemory(&m_procStartupInfo, sizeof(m_procStartupInfo));
+		m_procStartupInfo.cb = sizeof(m_procInfo);
+	}
+	Injector(std::wstring processName, std::wstring dllName) :
+		m_processName(processName),
 		m_dllName(dllName)
 	{
 		ZeroMemory(&m_procStartupInfo, sizeof(m_procStartupInfo));
@@ -185,6 +193,8 @@ public:
 	std::wstring getDllName();
 
 private:
+	Snapshot SystemSnapshot;
+	//int getProcessPidFromName();
 	void virtualAllocBeforeInject();
 	void writeProcessMemoryBeforeInject();
 	void getModuleHandleBeforeInject();
@@ -197,9 +207,11 @@ private:
 	STARTUPINFO m_procStartupInfo;
 	PROCESS_INFORMATION m_procInfo;
 	size_t m_dllSize = 0;
+	std::wstring m_processName;
 	HANDLE m_processHandle = nullptr;
 	PVOID m_remoteBuffer = nullptr;
 	HMODULE m_kernel32ModuleHandle = nullptr;
 	HANDLE m_remoteThread = nullptr;
 	DWORD m_processID = 0;
+
 };

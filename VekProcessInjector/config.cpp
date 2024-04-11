@@ -18,3 +18,9 @@ std::wstring Config::getDllName()
 {
 	return convertToWstring(m_dllName);
 }
+
+
+std::wstring Config::getProcessName()
+{
+	return convertToWstring(m_processName);
+}

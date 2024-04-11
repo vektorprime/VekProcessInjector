@@ -37,6 +37,11 @@ std::wstring Injector::getDllName()
 	return m_dllName;
 }
 
+//int Injector::getProcessPidFromName(std::string name)
+//{
+//
+//}
+
 void Injector::virtualAllocBeforeInject()
 {
 	//allocate memory in target proc
@@ -114,7 +119,6 @@ void Injector::injectBeforeRunningProc()
 
 	ResumeThread(m_procInfo.hThread);
 
-
 }
 
 
@@ -122,6 +126,12 @@ void Injector::injectAfterRunningProc()
 {
 
 	m_injectorType = InjectType::AfterRunningProcess;
+
+	if (m_processID == 0)
+	{
+		m_processID = SystemSnapshot.getProcessIdFromName(m_processName);
+	}
+
 
 	m_processHandle = OpenProcess(
 		PROCESS_QUERY_INFORMATION |                 // For Alloc

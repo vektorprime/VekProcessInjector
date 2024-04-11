@@ -10,11 +10,13 @@ public:
 	std::string m_processDirectory = "C:\\Users\\Test\\Desktop\\";
 	std::string m_commandArgument = "C:\\Users\\Test\\Desktop\\prog.exe";
 	std::string m_dllName = "new.dll";
+	std::string m_processName = "Example.exe";
 	int m_processID = 0;
 
 	std::wstring getProcessDirectory();
 	std::wstring getCommandArgument();
 	std::wstring getDllName();
+	std::wstring getProcessName();
 private:
 	//std::string m_wideProcessDirectory;
 	//std::string m_wideCommandArgument;

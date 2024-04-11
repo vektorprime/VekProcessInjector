@@ -11,6 +11,16 @@ void startInjectionThreadBeforeProc(Config config)
 
 void startInjectionThreadAfterProc(Config config)
 {
-	Injector procInjector(config.m_processID, config.getDllName());
-	procInjector.injectAfterRunningProc();
+	if (config.m_processID == 0)
+	{
+		Injector procInjector(config.getProcessName(), config.getDllName());
+		procInjector.injectAfterRunningProc();
+	}
+	else
+	{
+		Injector procInjector(config.m_processID, config.getDllName());
+		procInjector.injectAfterRunningProc();
+	}
+
+
 }

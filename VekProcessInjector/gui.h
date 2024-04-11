@@ -379,6 +379,7 @@ public:
 		int injectMode = static_cast<int>(InjectType::BeforeRunningProcess);
 		bool startInject = false;
 		bool buttonPressed = false;
+		int findProcessByName = 1;
 		///gui loop
 		while (!close_gui)
 		{
@@ -428,7 +429,7 @@ public:
 			ImGui::RadioButton("Before process start", &injectMode, static_cast<int>(InjectType::BeforeRunningProcess));
 			ImGui::SameLine();
 			ImGui::RadioButton("After process start", &injectMode, static_cast<int>(InjectType::AfterRunningProcess));
-
+			ImGui::Separator();
 			ImGui::PushItemWidth(200);
 			if (injectMode == static_cast<int>(InjectType::BeforeRunningProcess))
 			{
@@ -452,7 +453,18 @@ public:
 			else if (injectMode == static_cast<int>(InjectType::AfterRunningProcess))
 			{
 				ImGui::Text("Process Info");
-				ImGui::InputInt("Process ID", &injectorConfig.m_processID);
+				ImGui::RadioButton("Find process by name", &findProcessByName, 1);
+				ImGui::SameLine();
+				ImGui::RadioButton("Find process by ID", &findProcessByName, 2);
+				if (findProcessByName == 1)
+				{
+					ImGui::InputText("Process Name", &injectorConfig.m_processName);
+				}
+				else
+				{
+					
+					ImGui::InputInt("Process ID", &injectorConfig.m_processID);
+				}
 				ImGui::Separator();
 				ImGui::Text("DLL Info");
 				ImGui::InputText("DLL Name", &injectorConfig.m_dllName);
