@@ -9,12 +9,6 @@
 #include "config.h"
 #include "thread.h"
 
-using std::cout;
-using std::endl;
-using std::cin;
-
-
-std::mutex guiLock;
 
 Config injectorConfig{};
 Gui guiInstance{};
